@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.217.2/containers/php-mariadb
+// Update the VARIANT arg in docker-compose.yml to pick a PHP version
+{
+	"name": "PHP & MySQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	
+	// Set *default* container specific settings.json values on container create.
+	"customizations": { 
+		"vscode": { 
+			"extensions": [
+				"xdebug.php-debug",
+				"mrmlnc.vscode-apache"
+			]
+		} 
+	},
+
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	// start the apache webserver
+	"postStartCommand": "sudo apachectl start",
+
+	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+	"forwardPorts": [80],
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
