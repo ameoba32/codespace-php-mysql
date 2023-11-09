@@ -18,3 +18,7 @@ if (!$result = $mysqli->query('SELECT * FROM hello_world')) {
 
 $data = $result->fetch_assoc();
 echo $data['name'];
+?>
+<br/>
+<br/>
+<a href="phpinfo.php">See phpinfo</a>
